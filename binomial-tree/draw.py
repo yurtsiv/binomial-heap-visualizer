@@ -2,7 +2,7 @@ import math
 
 vertical_offset = 80
          
-def draw_heap(root, rel_side, parent_pos, curr_depth, static_params):
+def draw_tree(root, rel_side, parent_pos, curr_depth, static_params):
   if not root:
     return
 
@@ -40,7 +40,7 @@ def draw_heap(root, rel_side, parent_pos, curr_depth, static_params):
     return
 
   if root.left:
-    draw_heap(root.left, 'left', new_pos, curr_depth+1, static_params)
+    draw_tree(root.left, 'left', new_pos, curr_depth+1, static_params)
 
   if root.right:
-    draw_heap(root.right, 'right', new_pos, curr_depth+1, static_params)
+    draw_tree(root.right, 'right', new_pos, curr_depth+1, static_params)

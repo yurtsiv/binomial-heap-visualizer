@@ -1,4 +1,4 @@
-from .heap import Heap
+from .binomial_tree import BinomialTree
 from .utils import *
-from .draw import draw_heap
+from .draw import draw_tree
 from .node import Node
