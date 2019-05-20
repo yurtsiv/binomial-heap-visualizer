@@ -5,3 +5,4 @@ class Node:
     self.id = uuid.uuid4()
     self.key = key
     self.childs = []
+    self.degree = degree

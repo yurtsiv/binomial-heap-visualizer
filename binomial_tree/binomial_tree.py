@@ -3,20 +3,22 @@ from .node import Node
 from .draw import draw_tree
 
 class BinomialTree:
-  def __init__(self, initial_key):
-    self.root = Node(initial_key, 0)
-    self.degree = 0
+  def __init__(self, root=None, initial_key=None):
+    if root:
+      self.root = root
+    elif initial_key:
+      self.root = Node(initial_key, 0)
 
   def union(self, tree):
-    if tree.degree != self.degree:
+    if tree.root.degree != self.root.degree:
       raise Exception("Can't union trees with different degrees")
 
     if self.root.key <= tree.root.key:
       self.root.childs.append(tree.root)
-      self.degree += 1
+      self.root.degree += 1
       return self
 
-    tree.degree += 1
+    tree.root.degree += 1
     tree.root.childs.append(self.root)
     return tree
   
@@ -34,7 +36,6 @@ class BinomialTree:
 
   def clear(self):
     self.root = None
-    self.degree = -1
   
   def size(self):
-    return pow(self.degree, 2)
+    return pow(self.root.degree, 2)
