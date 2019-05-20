@@ -19,7 +19,7 @@ class BinomialTree:
     tree.degree += 1
     tree.root.childs.append(self.root)
     return tree
-
+  
   def draw(self, canvas, init_pos):
     draw_tree(
       self.root,

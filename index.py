@@ -1,17 +1,23 @@
 import tkinter as tk
-from binomial_tree import BinomialTree
-# from gui import App
+from binomial_heap import BinomialHeap
 
-a = BinomialTree(1)
-b = BinomialTree(2)
-ab = a.union(b)
+heap = BinomialHeap()
+heap.add_elem(1)
+heap.add_elem(2)
+heap.add_elem(3)
+heap.add_elem(4)
+heap.add_elem(5)
+heap.add_elem(6)
 
-c = BinomialTree(3)
-d = BinomialTree(6)
-cd = c.union(d)
+heap_2 = BinomialHeap()
+heap_2.add_elem(1)
+heap_2.add_elem(2)
+heap_2.add_elem(3)
+heap_2.add_elem(4)
+heap_2.add_elem(5)
+heap_2.add_elem(6)
 
-abcd = ab.union(cd)
-
+heap.union(heap_2)
 print("")
 # root = tk.Tk()
 # root.title('Heap')
