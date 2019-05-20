@@ -28,3 +28,13 @@ class BinomialTree:
       1,
       { 'canvas': canvas }
     )
+
+  def is_empty(self):
+    return self.root == None
+
+  def clear(self):
+    self.root = None
+    self.degree = -1
+  
+  def size(self):
+    return pow(self.degree, 2)
