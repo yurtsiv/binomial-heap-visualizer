@@ -68,12 +68,16 @@ class App:
     degrees = map(lambda tree: str(tree.root.degree), self.heap.trees)
     self.text_output.println(", ".join(degrees))
   
+  def on_min_root_click(self):
+    min_tree = self.heap.get_min_tree()
+    if min_tree:
+      self.text_output.println("Minimal tree root: " + str(min_tree.root.key))
+    else:
+      self.text_output.println("The heap is empty")
+
   def on_remove_min_click(self):
     pass
   
-  def on_min_root_click(self):
-    pass
-
   def on_min_click(self):
     self.text_output.println(
       "Min element: " #+ str(self.heap.min)

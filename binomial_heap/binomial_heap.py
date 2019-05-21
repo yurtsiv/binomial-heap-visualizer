@@ -14,6 +14,9 @@ class BinomialHeap:
     self._fix_heap()
   
   def get_min_tree(self):
+    if not len(self.trees):
+      return None
+
     return min(self.trees, key = lambda tree: tree.root.key)
   
   def remove_min_node(self):
