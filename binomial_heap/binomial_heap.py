@@ -24,6 +24,15 @@ class BinomialHeap:
       self.trees.append(new_tree)
 
     self._fix_heap() 
+  
+  def is_empty(self):
+    return self.size() == 0
+  
+  def size(self):
+    return len(self.trees)
+  
+  def clear(self):
+    self.trees = []
 
   def _fix_heap(self):
     trees = self.trees
