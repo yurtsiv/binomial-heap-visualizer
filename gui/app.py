@@ -76,7 +76,8 @@ class App:
       self.text_output.println("The heap is empty")
 
   def on_remove_min_click(self):
-    pass
+    self.heap.remove_min_node()
+    self.heap_canvas.draw(self.heap)
   
   def on_min_click(self):
     self.text_output.println(

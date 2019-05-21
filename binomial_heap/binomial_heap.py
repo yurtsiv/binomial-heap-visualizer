@@ -21,6 +21,9 @@ class BinomialHeap:
   
   def remove_min_node(self):
     min_tree = self.get_min_tree()
+    if not min_tree:
+      return
+
     self.trees.remove(min_tree)
     for root_child in min_tree.root.children:
       new_tree = BinomialTree(root=root_child)
