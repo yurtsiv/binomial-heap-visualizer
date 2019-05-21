@@ -19,7 +19,7 @@ class BinomialHeap:
   def remove_min_node(self):
     min_tree = self.get_min_tree()
     self.trees.remove(min_tree)
-    for root_child in min_tree.root.childs:
+    for root_child in min_tree.root.children:
       new_tree = BinomialTree(root=root_child)
       self.trees.append(new_tree)
 
@@ -33,7 +33,7 @@ class BinomialHeap:
     while merged:
       merged = False
       for i in range(0, len(trees) - 1):
-        if i >= len(self.trees):
+        if i >= len(self.trees) - 1:
           break
         
         if trees[i].root.degree == trees[i+1].root.degree:

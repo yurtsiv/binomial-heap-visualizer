@@ -8,7 +8,7 @@ class BinomialTree:
 
     if root:
       self.root = root
-    elif initial_key:
+    elif initial_key != None:
       self.root = Node(initial_key, 0)
 
   def union(self, tree):
@@ -16,12 +16,12 @@ class BinomialTree:
       raise Exception("Can't union trees with different degrees")
 
     if self.root.key <= tree.root.key:
-      self.root.childs.append(tree.root)
+      self.root.children.append(tree.root)
       self.root.degree += 1
       return self
 
     tree.root.degree += 1
-    tree.root.childs.append(self.root)
+    tree.root.children.append(self.root)
     return tree
   
   def is_empty(self):

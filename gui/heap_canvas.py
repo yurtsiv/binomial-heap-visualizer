@@ -1,4 +1,5 @@
 from tkinter import *
+from .draw_heap import draw_heap
 
 class HeapCanvas:
   canvas = None
@@ -9,10 +10,4 @@ class HeapCanvas:
 
   def draw(self, heap):
     self.canvas.delete('all')
-    heap.draw(
-      self.canvas,
-      {
-        'x': self.canvas.winfo_width() // 2,
-        'y': 20
-      }
-    )
+    draw_heap(heap, self.canvas)
