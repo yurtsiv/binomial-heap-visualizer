@@ -7,7 +7,7 @@ def draw_heap(heap, canvas):
   for i in range(0, len(heap.trees)):
     root_pos = { 'y': 10, 'x': None }
     if not prev_root:
-      root_pos['x'] = 10
+      root_pos['x'] = 30
     else:
       root_pos['x'] = prev_root_pos['x'] + tree_draw_horizontal_offset * (prev_root.degree + 1)
       
