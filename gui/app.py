@@ -64,7 +64,9 @@ class App:
     self.text_output.println(", ".join(sizes))
   
   def on_degrees_click(self):
-    pass
+    self.text_output.println("Degrees of consecutive trees in the heap:")
+    degrees = map(lambda tree: str(tree.root.degree), self.heap.trees)
+    self.text_output.println(", ".join(degrees))
   
   def on_remove_min_click(self):
     pass
