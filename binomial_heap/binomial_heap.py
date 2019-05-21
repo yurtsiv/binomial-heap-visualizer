@@ -37,15 +37,15 @@ class BinomialHeap:
   def _fix_heap(self):
     trees = self.trees
     trees.sort(key = lambda tree: tree.root.degree)
-    merged = True
+    was_merge = True
 
-    while merged:
-      merged = False
+    while was_merge:
+      was_merge = False
       for i in range(0, len(trees) - 1):
         if i >= len(self.trees) - 1:
           break
         
         if trees[i].root.degree == trees[i+1].root.degree:
-          merged = True
+          was_merge = True
           trees[i] = trees[i].union(trees[i+1])
           trees.pop(i+1)

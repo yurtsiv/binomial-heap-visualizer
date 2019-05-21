@@ -39,8 +39,10 @@ class App:
       master,
       toolbar_cont,
       on_add_new_node=self.on_add_new_node,
-      on_size_click=self.on_size_click,
-      on_min_click=self.on_min_click,
+      on_sizes_click=self.on_sizes_click,
+      on_degrees_click=self.on_degrees_click,
+      on_remove_min_click=self.on_remove_min_click,
+      on_min_root_click=self.on_min_root_click,
       on_print_click=self.on_print_click,
       on_reset_click=self.on_reset_click,
     )
@@ -56,10 +58,19 @@ class App:
     text_output_cont.grid(row=0, column=1, sticky="WENS")
     self.text_output = TextOutput(text_output_cont)
   
-  def on_size_click(self):
-    self.text_output.println(
-      "Tree sizes: " #+ str(self.heap.size())
-    )
+  def on_sizes_click(self):
+    self.text_output.println("Sizes of consecutive trees in the heap:")
+    sizes = map(lambda tree: str(tree.size()), self.heap.trees)
+    self.text_output.println(", ".join(sizes))
+  
+  def on_degrees_click(self):
+    pass
+  
+  def on_remove_min_click(self):
+    pass
+  
+  def on_min_root_click(self):
+    pass
 
   def on_min_click(self):
     self.text_output.println(
@@ -79,7 +90,6 @@ class App:
     self.heap = BinomialHeap()
     self.heap_canvas.draw(self.heap)
     self.text_output.clear()
-    self._display_warning = True
 
   def on_add_new_node(self, keys):
     new_heap = BinomialHeap()

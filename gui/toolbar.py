@@ -6,8 +6,10 @@ class Toolbar:
     master,
     root,
     on_add_new_node,
-    on_size_click,
-    on_min_click,
+    on_sizes_click,
+    on_degrees_click,
+    on_remove_min_click,
+    on_min_root_click,
     on_print_click,
     on_reset_click,
   ):
@@ -32,17 +34,25 @@ class Toolbar:
       column=0
     )
 
-    # Size
-    size_btn = Button(root, text="Size", command=on_size_click)
+    # Sizes
+    size_btn = Button(root, text="Sizes", command=on_sizes_click)
     size_btn.grid(row=1, column=2, sticky="WE") 
 
+    # Degrees
+    size_btn = Button(root, text="Degrees", command=on_degrees_click)
+    size_btn.grid(row=2, column=2, sticky="WE") 
+
     # Min
-    min_btn = Button(root, text="Min", command=on_min_click)
-    min_btn.grid(row=2, column=2, sticky="WE") 
+    min_btn = Button(root, text="Min root", command=on_min_root_click)
+    min_btn.grid(row=3, column=2, sticky="WE") 
+
+    # Remove min
+    size_btn = Button(root, text="Remove min", command=on_remove_min_click)
+    size_btn.grid(row=1, column=3, sticky="WE") 
 
     # Print
     print_btn = Button(root, text="Print", command=on_print_click)
-    print_btn.grid(row=1, column=3, sticky="WE") 
+    print_btn.grid(row=2, column=3, sticky="WE") 
 
     # Reset
     reset_btn = Button(root, text="Reset", command=on_reset_click)

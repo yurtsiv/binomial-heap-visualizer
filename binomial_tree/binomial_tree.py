@@ -31,4 +31,4 @@ class BinomialTree:
     self.root = None
   
   def size(self):
-    return pow(self.root.degree, 2)
+    return pow(2, self.root.degree)
