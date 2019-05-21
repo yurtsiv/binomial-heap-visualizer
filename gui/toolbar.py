@@ -10,7 +10,6 @@ class Toolbar:
     on_degrees_click,
     on_remove_min_click,
     on_min_root_click,
-    on_print_click,
     on_reset_click,
   ):
     # validate inputs
@@ -50,13 +49,9 @@ class Toolbar:
     size_btn = Button(root, text="Remove min", command=on_remove_min_click)
     size_btn.grid(row=1, column=3, sticky="WE") 
 
-    # Print
-    print_btn = Button(root, text="Print", command=on_print_click)
-    print_btn.grid(row=2, column=3, sticky="WE") 
-
     # Reset
     reset_btn = Button(root, text="Reset", command=on_reset_click)
-    reset_btn.grid(row=3, column=3, sticky="WE") 
+    reset_btn.grid(row=2, column=3, sticky="WE") 
 
 
   def make_entry_field(

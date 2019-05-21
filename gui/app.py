@@ -43,7 +43,6 @@ class App:
       on_degrees_click=self.on_degrees_click,
       on_remove_min_click=self.on_remove_min_click,
       on_min_root_click=self.on_min_root_click,
-      on_print_click=self.on_print_click,
       on_reset_click=self.on_reset_click,
     )
 
@@ -83,15 +82,6 @@ class App:
     self.text_output.println(
       "Min element: " #+ str(self.heap.min)
     )
-
-  def on_print_click(self):
-    pass
-    # str_repres= self.heap.string_representations()
-    # self.text_output.println(
-    #   'In-order: ' + str_repres['in_order'] + '\n' +
-    #   'Pre-order: ' + str_repres['pre_order'] + '\n' +
-    #   'Post-order: ' + str_repres['post_order']
-    # )
 
   def on_reset_click(self):
     self.heap = BinomialHeap()
