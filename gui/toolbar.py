@@ -8,11 +8,8 @@ class Toolbar:
     on_add_new_node,
     on_size_click,
     on_min_click,
-    on_max_click,
     on_print_click,
     on_reset_click,
-    on_max_heap_toggle,
-    on_levels_click
   ):
     # validate inputs
     vcmd = master.register(self.validate_num)
@@ -43,27 +40,9 @@ class Toolbar:
     min_btn = Button(root, text="Min", command=on_min_click)
     min_btn.grid(row=2, column=2, sticky="WE") 
 
-    # Max
-    max_btn = Button(root, text="Max", command=on_max_click)
-    max_btn.grid(row=3, column=2, sticky="WE") 
-
-    # Max heap checkbox
-    max_checkbtn = Checkbutton(
-      root,
-      text="Max heap", 
-      onvalue=True,
-      offvalue=False,
-      command=on_max_heap_toggle
-    )
-    max_checkbtn.grid(row=4, column=2, sticky="W")
-
     # Print
     print_btn = Button(root, text="Print", command=on_print_click)
     print_btn.grid(row=1, column=3, sticky="WE") 
-
-    # Levels
-    levels_btn = Button(root, text="Levels", command=on_levels_click)
-    levels_btn.grid(row=2, column=3, sticky="WE")
 
     # Reset
     reset_btn = Button(root, text="Reset", command=on_reset_click)

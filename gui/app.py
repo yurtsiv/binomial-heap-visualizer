@@ -2,10 +2,10 @@ from tkinter import *
 from gui.toolbar import Toolbar
 from gui.heap_canvas import HeapCanvas
 from gui.text_output import TextOutput
-from heap import Heap
+from binomial_heap import BinomialHeap
 
 class App:
-  heap = Heap()
+  heap = BinomialHeap()
 
   def __init__(self, master):
     self._display_warning = True
@@ -41,11 +41,8 @@ class App:
       on_add_new_node=self.on_add_new_node,
       on_size_click=self.on_size_click,
       on_min_click=self.on_min_click,
-      on_max_click=self.on_max_click,
       on_print_click=self.on_print_click,
       on_reset_click=self.on_reset_click,
-      on_max_heap_toggle=self.on_max_heap_toggle,
-      on_levels_click=self.on_levels_click
     )
 
     toolbar_cont.grid(row=0, column=0, sticky="WENS")
@@ -59,53 +56,38 @@ class App:
     text_output_cont.grid(row=0, column=1, sticky="WENS")
     self.text_output = TextOutput(text_output_cont)
   
-  def on_levels_click(self):
-    self.text_output.println(
-      "Complete levels: " + str(self.heap.complete_levels)
-    )
-
-  def on_max_heap_toggle(self):
-    self.heap.toggle_max_heap()
-    self.heap_canvas.draw(self.heap)
-
   def on_size_click(self):
     self.text_output.println(
-      "Tree size: " + str(self.heap.size)
+      "Tree sizes: " #+ str(self.heap.size())
     )
 
   def on_min_click(self):
     self.text_output.println(
-      "Min element: " + str(self.heap.min)
-    )
-
-  def on_max_click(self):
-    self.text_output.println(
-      "Max element: " + str(self.heap.max)
+      "Min element: " #+ str(self.heap.min)
     )
 
   def on_print_click(self):
-    str_repres= self.heap.string_representations()
-    self.text_output.println(
-      'In-order: ' + str_repres['in_order'] + '\n' +
-      'Pre-order: ' + str_repres['pre_order'] + '\n' +
-      'Post-order: ' + str_repres['post_order']
-    )
+    pass
+    # str_repres= self.heap.string_representations()
+    # self.text_output.println(
+    #   'In-order: ' + str_repres['in_order'] + '\n' +
+    #   'Pre-order: ' + str_repres['pre_order'] + '\n' +
+    #   'Post-order: ' + str_repres['post_order']
+    # )
 
   def on_reset_click(self):
-    self.heap = Heap()
+    self.heap = BinomialHeap()
     self.heap_canvas.draw(self.heap)
     self.text_output.clear()
     self._display_warning = True
 
   def on_add_new_node(self, keys):
+    new_heap = BinomialHeap()
     for key in keys:
       if key >= 100:
         self.text_output.println("WARNING: Node " + str(key) + " was not added (should be < 100)")
       else:
-        self.heap.add(key)
-    
-    if self._display_warning and self.heap.complete_levels >= 6:
-      self.text_output.println("WARNING: Nodes may start (or started) overlapping and disappearing from your screen")
-      self._display_warning = False
+        new_heap.add_elem(key)
 
+    self.heap.union(new_heap) 
     self.heap_canvas.draw(self.heap)

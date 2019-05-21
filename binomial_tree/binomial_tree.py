@@ -1,9 +1,11 @@
 import math
+import uuid
 from .node import Node
-from .draw import draw_tree
 
 class BinomialTree:
   def __init__(self, root=None, initial_key=None):
+    self.id = uuid.uuid4()
+
     if root:
       self.root = root
     elif initial_key:
@@ -22,15 +24,6 @@ class BinomialTree:
     tree.root.childs.append(self.root)
     return tree
   
-  def draw(self, canvas, init_pos):
-    draw_tree(
-      self.root,
-      None,
-      init_pos,
-      1,
-      { 'canvas': canvas }
-    )
-
   def is_empty(self):
     return self.root == None
 
