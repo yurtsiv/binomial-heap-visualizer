@@ -11,7 +11,7 @@ class App:
     self._display_warning = True
   
     # open full screen
-    master.wm_attributes('-zoomed', True)
+    # master.wm_attributes('-fullscreen', True)
     master.update()
 
     self.init_ui_elems(master)
